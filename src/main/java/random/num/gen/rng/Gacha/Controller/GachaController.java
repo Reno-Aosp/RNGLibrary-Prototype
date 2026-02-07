@@ -22,9 +22,9 @@ public class GachaController {
     @GetMapping("/pull")
     public PullResult singlePull() {
         List<WeightedItem<String>> items = Arrays.asList(
-            new WeightedItem<>("5 star item", 0.6f),
-            new WeightedItem<>("4 star item", 5.0f),
-            new WeightedItem<>("3 star item", 94.4f)
+            new WeightedItem<>("5 star item", 0.6f, (byte)5),
+            new WeightedItem<>("4 star item", 5.0f, (byte)4),
+            new WeightedItem<>("3 star item", 94.4f, (byte)3)
         );
         GachaBanner banner = new GachaBanner(
             "banner1", 
@@ -32,19 +32,19 @@ public class GachaController {
             LocalDateTime.now(), 
             LocalDateTime.now().plusDays(14),
             items, 
-            0.6f, 
-            5.0f, 
-            94.4f
+            0.006f,    // fiveStarRate
+            0.051f,    // fourStarRate
+            0.943f     // threeStarRate
         );
         return gachaSystem.pull(banner);
     }
 
-    @PostMapping("/multi-pull")
+    @GetMapping("/multi-pull")
     public List<PullResult> multiPull(@RequestParam(defaultValue = "10") byte count) {
         List<WeightedItem<String>> items = Arrays.asList(
-            new WeightedItem<>("5 star item", 0.6f),
-            new WeightedItem<>("4 star item", 5.0f),
-            new WeightedItem<>("3 star item", 94.4f)
+            new WeightedItem<>("5 star item", 0.6f, (byte)5),
+            new WeightedItem<>("4 star item", 5.0f, (byte)4),
+            new WeightedItem<>("3 star item", 94.4f, (byte)3)
         );
         GachaBanner banner = new GachaBanner(
             "banner1", 
@@ -52,9 +52,9 @@ public class GachaController {
             LocalDateTime.now(), 
             LocalDateTime.now().plusDays(14),
             items, 
-            0.6f, 
-            5.0f, 
-            94.4f
+            0.006f,    // fiveStarRate
+            0.051f,    // fourStarRate
+            0.943f     // threeStarRate
         );
         return gachaSystem.multiPull(banner, count);
     }

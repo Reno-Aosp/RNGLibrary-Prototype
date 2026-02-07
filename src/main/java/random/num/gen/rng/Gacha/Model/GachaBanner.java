@@ -19,4 +19,5 @@ public class GachaBanner {
     private float fiveStarRate;
     private float fourStarRate;
     private float threeStarRate;
+    
 }

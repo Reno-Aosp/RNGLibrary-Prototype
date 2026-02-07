@@ -25,7 +25,7 @@ public class GachaService {
     public PullResult singlePull(GachaBanner banner) {
         pitySystem.addFiveStarPull();
         
-        byte rarity = determineRarity(banner);
+        byte rarity = (byte) determineRarity(banner);
         String itemName = selectItem(banner, rarity);
         
         PullResult result = new PullResult(
@@ -53,7 +53,7 @@ public class GachaService {
         return results;
     }
 
-    private byte determineRarity(GachaBanner banner) {
+    private int determineRarity(GachaBanner banner) {
         if (pitySystem.getFiveStarPity() >= GachaConfig.HARD_PITY) {
             return 5;
         }
@@ -68,9 +68,17 @@ public class GachaService {
 
     private String selectItem(GachaBanner banner, byte rarity) {
         List<WeightedItem<String>> filtered = new ArrayList<>();
+        
         for (WeightedItem<String> item : banner.getItems()) {
-            filtered.add(item);
+            if (item.getRarity() == rarity) {
+                filtered.add(item);
+            }
         }
+        
+        if (filtered.isEmpty()) {
+            return "Unknown Item";
+        }
+        
         return selector.selectByWeight(filtered);
     }
 

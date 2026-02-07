@@ -1,5 +1,6 @@
 package random.num.gen.rng.Gacha.Model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,5 +17,7 @@ public class PullResult {
     private String rarity;
     private byte pityCount;
     private boolean isGuaranteed;
+    
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime pullTime;
 }

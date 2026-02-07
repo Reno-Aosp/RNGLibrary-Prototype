@@ -10,4 +10,5 @@ import lombok.Setter;
 public class WeightedItem<T> {
     private T item;
     private float weight;
+    private byte rarity;  // Add this
 }
