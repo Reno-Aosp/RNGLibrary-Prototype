@@ -24,6 +24,7 @@ public class GachaService {
 
     public PullResult singlePull(GachaBanner banner) {
         pitySystem.addFiveStarPull();
+        pitySystem.addFourStarPull();
         
         byte rarity = (byte) determineRarity(banner);
         String itemName = selectItem(banner, rarity);
@@ -38,8 +39,9 @@ public class GachaService {
         
         if (rarity == 5) {
             pitySystem.resetFiveStarPity();
+            pitySystem.addFourStarPull();  // Continue counting 4-star pity
         } else if (rarity == 4) {
-            pitySystem.resetFourStarPity();
+            pitySystem.resetFourStarPity();  // Reset 4-star pity after getting 4-star
         }
         
         return result;
@@ -53,17 +55,34 @@ public class GachaService {
         return results;
     }
 
-    private int determineRarity(GachaBanner banner) {
+    private byte determineRarity(GachaBanner banner) {
+        // 5-Star Hard Pity (guaranteed at 90)
         if (pitySystem.getFiveStarPity() >= GachaConfig.HARD_PITY) {
             return 5;
         }
         
+        // 5-Star Soft Pity (enhanced rate starting at 75)
         if (pitySystem.getFiveStarPity() >= GachaConfig.SOFT_PITY) {
-            float enhancedRate = banner.getFiveStarRate() * 3;
-            return selector.rollForRarity(enhancedRate, banner.getFourStarRate());
+            float enhancedRate = banner.getFiveStarRate() * 4;
+            byte roll = selector.rollForRarity(enhancedRate, banner.getFourStarRate());
+            return (byte) roll;
         }
         
-        return selector.rollForRarity(banner.getFiveStarRate(), banner.getFourStarRate());
+        // 4-Star Hard Pity (guaranteed at 10)
+        if (pitySystem.getFourStarPity() >= GachaConfig.FOUR_STAR_HARD_PITY) {
+            return 4;
+        }
+        
+        // 4-Star Soft Pity (enhanced rate starting at 6) - NOT guaranteed!
+        if (pitySystem.getFourStarPity() >= 6) {
+            float enhancedFourRate = banner.getFourStarRate() *    1.5f;  // Only 1.5x boost
+            byte roll = selector.rollForRarity(banner.getFiveStarRate(), enhancedFourRate);
+            return (byte) roll;
+        }
+        
+        // Normal rates
+        byte roll = selector.rollForRarity(banner.getFiveStarRate(), banner.getFourStarRate());
+        return (byte) roll;
     }
 
     private String selectItem(GachaBanner banner, byte rarity) {

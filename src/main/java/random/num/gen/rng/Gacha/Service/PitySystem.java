@@ -11,11 +11,17 @@ public class PitySystem {
     private boolean guaranteedFiveStar;
     private boolean guaranteedFourStar;
 
+    // Constructor to initialize pity counts
     public PitySystem() {
         this.fiveStarPity = 0;
         this.fourStarPity = 0;
         this.guaranteedFiveStar = false;
         this.guaranteedFourStar = false;
+    }
+
+    // Methods to update pity counts
+    public void addFourStarPull() {
+        this.fourStarPity++;
     }
 
     public void addFiveStarPull() {

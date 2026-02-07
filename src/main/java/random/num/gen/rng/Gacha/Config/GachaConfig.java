@@ -11,5 +11,6 @@ public class GachaConfig {
     public static final byte HARD_PITY = 90;
     public static final byte SOFT_PITY = 75;
     public static final byte FOUR_STAR_PITY = 10;
-    
+    public static final byte FOUR_STAR_SOFT_PITY = 6;
+    public static final byte FOUR_STAR_HARD_PITY = 10;
 }

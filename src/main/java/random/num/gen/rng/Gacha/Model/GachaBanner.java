@@ -18,6 +18,5 @@ public class GachaBanner {
     private List<WeightedItem<String>> items;
     private float fiveStarRate;
     private float fourStarRate;
-    private float threeStarRate;
-    
+
 }
