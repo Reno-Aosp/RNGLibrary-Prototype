@@ -3,9 +3,8 @@ package random.num.gen.rng.Gacha.Model;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
-
-import java.util.List;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Getter
 @Setter
@@ -15,8 +14,9 @@ public class GachaBanner {
     private String bannerName;
     private LocalDateTime startDate;
     private LocalDateTime endDate;
-    private List<WeightedItem<String>> items;
     private float fiveStarRate;
     private float fourStarRate;
-
+    private List<WeightedItem<String>> featuredFiveStarItems;
+    private List<WeightedItem<String>> featuredFourStarItems;
+    private List<WeightedItem<String>> items;
 }

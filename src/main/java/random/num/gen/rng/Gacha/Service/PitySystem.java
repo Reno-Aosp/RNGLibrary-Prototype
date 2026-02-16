@@ -10,6 +10,8 @@ public class PitySystem {
     private byte fourStarPity;
     private boolean guaranteedFiveStar;
     private boolean guaranteedFourStar;
+    private boolean guaranteedFeaturedFiveStar;
+    private boolean guaranteedFeaturedFourStar;
 
     // Constructor to initialize pity counts
     public PitySystem() {
@@ -17,25 +19,25 @@ public class PitySystem {
         this.fourStarPity = 0;
         this.guaranteedFiveStar = false;
         this.guaranteedFourStar = false;
+        this.guaranteedFeaturedFiveStar = false;
+        this.guaranteedFeaturedFourStar = false;
     }
 
-    // Methods to update pity counts
-    public void addFourStarPull() {
-        this.fourStarPity++;
-    }
-
-    public void addFiveStarPull() {
+    // Increment both counters each pull
+    public void incrementPull() {
         this.fiveStarPity++;
         this.fourStarPity++;
     }
 
     public void resetFiveStarPity() {
         this.fiveStarPity = 0;
-        this.guaranteedFiveStar = false;
+        // Toggle: if guaranteed, next is NOT guaranteed (50/50)
+        this.guaranteedFeaturedFiveStar = !this.guaranteedFeaturedFiveStar;
     }
 
     public void resetFourStarPity() {
         this.fourStarPity = 0;
-        this.guaranteedFourStar = false;
+        // Toggle: if guaranteed, next is NOT guaranteed (50/50)
+        this.guaranteedFeaturedFourStar = !this.guaranteedFeaturedFourStar;
     }
 }

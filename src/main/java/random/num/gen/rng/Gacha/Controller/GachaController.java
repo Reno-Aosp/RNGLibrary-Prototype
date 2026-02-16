@@ -26,17 +26,19 @@ public class GachaController {
 
     private GachaBanner createBanner() {
         return new GachaBanner(
-            "banner1", 
-            "Item Banner", 
-            LocalDateTime.now().minusDays(1), 
+            "banner1",
+            "Character Banner",
+            LocalDateTime.now().minusDays(1),
             LocalDateTime.now().plusDays(14),
-            Arrays.asList(
-                new WeightedItem<>("5 star item", 1f, (byte)5),
-                new WeightedItem<>("4 star item", 1f, (byte)4),
-                new WeightedItem<>("3 star item", 1f, (byte)3)
-            ), 
             0.006f,
-            0.051f
+            0.051f,
+            Arrays.asList(new WeightedItem<>("Featured 5-Star Char", 1f, (byte)5)),
+            Arrays.asList(new WeightedItem<>("Featured 4-Star Char", 1f, (byte)4)),
+            Arrays.asList(
+                new WeightedItem<>("Standard 5-Star", 1f, (byte)5),
+                new WeightedItem<>("Standard 4-Star", 1f, (byte)4),
+                new WeightedItem<>("3-Star Item", 1f, (byte)3)
+            )
         );
     }
 
@@ -45,9 +47,9 @@ public class GachaController {
         GachaBanner banner = createBanner();
         if (checkActiveBanner.isBannerActive(banner)) {
             long daysLeft = checkActiveBanner.daysUntilExpire(banner);
-            return "Banner is active. Time left: " + daysLeft + " days";
+            return "Banner active. Days left: " + daysLeft;
         }
-        return "Banner is not active.";
+        return "Banner expired.";
     }
     
     @GetMapping("/pull")
@@ -55,7 +57,7 @@ public class GachaController {
         return gachaSystem.pull(createBanner());
     }
 
-    @PostMapping("/multi-pull")
+    @GetMapping("/multi-pull")
     public List<PullResult> multiPull(@RequestParam(defaultValue = "10") byte count) {
         return gachaSystem.multiPull(createBanner(), count);
     }
