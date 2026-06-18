@@ -1,0 +1,40 @@
+=========================================================
+  Genetic Algorithm — Word Matching
+  Target  : "Reno Rizky"
+  Length  : 10 genes
+=========================================================
+
+--- Task 3: default population (100), prob thresholds 0.45 / 0.90 ---
+> population=100, crossoverThreshold=0.45, mutationProb=0.10, elitism=10
+  FOUND in generation 59 (best="Reno Rizky", elapsed=29 ms)
+
+--- Task 4: population size sweep (10, 100, 10000, 100000) ---
+> population=10, crossoverThreshold=0.45, mutationProb=0.10, elitism=1
+  FOUND in generation 1088 (best="Reno Rizky", elapsed=19 ms)
+> population=100, crossoverThreshold=0.45, mutationProb=0.10, elitism=10
+  FOUND in generation 59 (best="Reno Rizky", elapsed=11 ms)
+> population=10000, crossoverThreshold=0.45, mutationProb=0.10, elitism=1000
+  FOUND in generation 10 (best="Reno Rizky", elapsed=174 ms)
+> population=100000, crossoverThreshold=0.45, mutationProb=0.10, elitism=10000
+  FOUND in generation 9 (best="Reno Rizky", elapsed=569 ms)
+
+Task 4 summary
+  popSize    generations  elapsed (ms)    found?    
+  10         1088         19              yes       
+  100        59           11              yes       
+  10000      10           174             yes       
+  100000     9            569             yes       
+
+--- Task 5: original probabilities (0.45 crossover / 0.10 mutation) ---
+> population=100, crossoverThreshold=0.45, mutationProb=0.10, elitism=10
+  FOUND in generation 59 (best="Reno Rizky", elapsed=2 ms)
+
+--- Task 6: HIGH mutation probability (mutation prob ≈ 0.60) ---
+> population=100, crossoverThreshold=0.20, mutationProb=0.60, elitism=10
+  FOUND in generation 10330 (best="Reno Rizky", elapsed=334 ms)
+
+--- Task 6 (bonus): medium mutation probability (≈ 0.30) ---
+> population=100, crossoverThreshold=0.35, mutationProb=0.30, elitism=10
+  FOUND in generation 52 (best="Reno Rizky", elapsed=2 ms)
+
+All experiments finished.

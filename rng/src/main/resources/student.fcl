@@ -1,0 +1,43 @@
+FUNCTION_BLOCK student_eval
+VAR_INPUT
+    assignment : REAL;   // 0..100
+    exam       : REAL;   // 0..100
+END_VAR
+VAR_OUTPUT
+    final_score : REAL;  // 0..100
+END_VAR
+
+FUZZIFY assignment
+    TERM low    := (0, 1) (0, 1) (40, 0);   // triangular
+    TERM medium := (30, 0) (50, 1) (70, 0);
+    TERM high   := (60, 0) (100, 1) (100, 1);
+END_FUZZIFY
+
+FUZZIFY exam
+    TERM low    := (0, 1) (0, 1) (40, 0);
+    TERM medium := (30, 0) (50, 1) (70, 0);
+    TERM high   := (60, 0) (100, 1) (100, 1);
+END_FUZZIFY
+
+DEFUZZIFY final_score
+    METHOD : WeightedAverage; // zero-order Sugeno style with constant consequents
+    ACCU : MAX;
+    TERM low    := 0;         // consequent constant = 0
+    TERM medium := 50;        // consequent constant = 50
+    TERM high   := 100;       // consequent constant = 100
+END_DEFUZZIFY
+
+RULEBLOCK No1
+    AND : MIN;
+    ACT : MIN;
+    RULE 1 : if assignment is low    and exam is low    then final_score is low;
+    RULE 2 : if assignment is low    and exam is medium then final_score is low;
+    RULE 3 : if assignment is low    and exam is high   then final_score is medium;
+    RULE 4 : if assignment is medium and exam is low    then final_score is low;
+    RULE 5 : if assignment is medium and exam is medium then final_score is medium;
+    RULE 6 : if assignment is medium and exam is high   then final_score is high;
+    RULE 7 : if assignment is high   and exam is low    then final_score is medium;
+    RULE 8 : if assignment is high   and exam is medium then final_score is high;
+    RULE 9 : if assignment is high   and exam is high   then final_score is high;
+END_RULEBLOCK
+END_FUNCTION_BLOCK
