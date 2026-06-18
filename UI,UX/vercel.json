@@ -1,0 +1,4 @@
+{
+  "name": "random-num-gen-gacha",
+  "installCommand": "pnpm install --no-frozen-lockfile"
+}
