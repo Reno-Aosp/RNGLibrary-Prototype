@@ -1,3 +1,18 @@
+<img width="1919" height="921" alt="Screenshot 2026-06-18 220954" src="https://github.com/user-attachments/assets/c63199a8-579f-4522-a353-256b8c52b4bf" />
+<img width="1919" height="923" alt="Screenshot 2026-06-18 220947" src="https://github.com/user-attachments/assets/dbcfb700-d502-4c92-8cbd-434a10307d67" />
+<img width="1919" height="923" alt="Screenshot 2026-06-18 220927" src="https://github.com/user-attachments/assets/22d81385-21c3-490a-9ac5-2bb7bc5b0d9d" />
+<img width="1919" height="926" alt="Screenshot 2026-06-17 183921" src="https://github.com/user-attachments/assets/88194607-0df7-495c-88cc-c33e67575e83" />
+<img width="1919" height="921" alt="Screenshot 2026-06-17 183904" src="https://github.com/user-attachments/assets/c336adbd-728c-4b34-a04f-5e75132ffc99" />
+<img width="1917" height="915" alt="Screenshot 2026-06-17 183350" src="https://github.com/user-attachments/assets/097a32a5-33d8-4306-b364-2dd2303052a4" />
+<img width="1915" height="917" alt="Screenshot 2026-06-17 182011" src="https://github.com/user-attachments/assets/80ca1437-1d57-4754-befb-b549964451e3" />
+<img width="1919" height="917" alt="Screenshot 2026-06-17 181544" src="https://github.com/user-attachments/assets/f0102273-9e0f-4e7c-b389-0af5357f730e" />
+<img width="926" height="802" alt="Screenshot 2026-06-17 181500" src="https://github.com/user-attachments/assets/56722ecd-6749-4a76-982b-9c1c11f3ba9d" />
+<img width="1919" height="924" alt="Screenshot 2026-06-17 181316" src="https://github.com/user-attachments/assets/d88de311-4f46-4e64-ad9a-abe8e3e6cd66" />
+<img width="915" height="806" alt="Screenshot 2026-06-17 181048" src="https://github.com/user-attachments/assets/c9ce1d79-dbd2-4367-978b-d218b92648ee" />
+<img width="962" height="813" alt="Screenshot 2026-06-17 180851" src="https://github.com/user-attachments/assets/e669b539-572d-44b4-b18c-183198fc4b28" />
+<img width="1919" height="922" alt="Screenshot 2026-06-17 180621" src="https://github.com/user-attachments/assets/68754430-f242-453c-90d9-363781fd14a2" />
+<img width="1919" height="911" alt="Screenshot 2026-06-17 180252" src="https://github.com/user-attachments/assets/e2db36ea-5de6-4386-b08f-8dbc39fad4d8" />
+<img width="1919" height="905" alt="Screenshot 2026-06-17 175824" src="https://github.com/user-attachments/assets/a9faf306-6db7-4fd0-95e8-2989787ab361" />
 # 🌍 WW1 Gacha Simulator (RNGLibrary Prototype)
 
 A fully functional, Genshin-style Gacha Simulator built with React, Vite, and Tailwind CSS. Instead of fantasy characters, this simulator allows you to pull for historical World War 1 figures, factions, and strategic tactics!
