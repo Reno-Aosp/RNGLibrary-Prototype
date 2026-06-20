@@ -1,3 +1,5 @@
+https://random-num-gen-gacha.vercel.app/  //Realtime Access Vercel
+
 <img width="1919" height="921" alt="Screenshot 2026-06-18 220954" src="https://github.com/user-attachments/assets/c63199a8-579f-4522-a353-256b8c52b4bf" />
 <img width="1919" height="923" alt="Screenshot 2026-06-18 220947" src="https://github.com/user-attachments/assets/dbcfb700-d502-4c92-8cbd-434a10307d67" />
 <img width="1919" height="923" alt="Screenshot 2026-06-18 220927" src="https://github.com/user-attachments/assets/22d81385-21c3-490a-9ac5-2bb7bc5b0d9d" />
